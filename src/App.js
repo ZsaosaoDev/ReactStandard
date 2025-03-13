@@ -1,11 +1,11 @@
 import './App.css';
+import AppRoutes from './router/AppRoutes';
 
 const App = () => {
 
     return (
         <div className="app-container">
-            Hello World
-            <button className='btn btn-primary'>test</button>
+            <AppRoutes />
         </div>
     );
 };
