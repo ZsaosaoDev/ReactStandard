@@ -1,14 +1,24 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import UserPage from "../pages/UserPage";
+import HomePage from "../pages/HomePage";
+import AdminPage from "../pages/AdminPage";
 
-import User from "../pages/User";
-import Home from "../pages/Home";
+import ManagerUserPage from "../pages/AdminPage/ManagerUserPage";
+import ManagerTestPage from "../pages/AdminPage/ManagerTestPage";
 
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/users" element={<User />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/user" element={<UserPage />} />
+
+
+            <Route path="/admin" element={<AdminPage />}>
+                <Route index element={<Navigate to="managerUser" replace />} />
+                {/* set default route to managerUser */}
+                <Route path="managerUser" element={<ManagerUserPage />} />
+                <Route path="managerTest" element={<ManagerTestPage />} />
+            </Route>
         </Routes>
     );
 }
